@@ -24,7 +24,7 @@ Pour la mise en forme du code javascript :
 
 ## Licences
 
-Le contenus propre à ce projet est sous licence <a rel="license" href="http://creativecommons.org/licenses/by/2.0/fr/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/2.0/fr/80x15.png" /></a><br />Cette cr&#233;ation par <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Pierre Pracht</span> est mise &#224; disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by/2.0/fr/">licence Creative Commons Paternit&#233; 2.0 France</a>.
+Le contenus propre à ce projet est sous [licence Creative Commons Paternité](http://creativecommons.org/licenses/by/2.0/fr/).
 
 Se référer aux licences des projets inclut dans la distribution :
 
