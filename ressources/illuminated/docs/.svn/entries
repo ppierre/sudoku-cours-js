@@ -1,0 +1,53 @@
+8
+
+dir
+13
+http://code-illuminated.googlecode.com/svn/trunk/docs
+http://code-illuminated.googlecode.com/svn
+
+
+
+2009-01-14T00:21:07.282238Z
+13
+sander.dijkhuis
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+284b8a58-e01c-11dd-987e-d7c0a4ebcf36
+
+docs.css
+file
+
+
+
+
+2009-01-17T16:32:08.000000Z
+4be8f44e94ddf5e2da4c504b33c3e053
+2009-01-12T20:48:20.361928Z
+12
+sander.dijkhuis
+has-props
+
+docs.js
+file
+
+
+
+
+2009-01-17T16:32:08.000000Z
+d12193b8a3c7696823fde05ec78899a1
+2009-01-14T00:21:07.282238Z
+13
+sander.dijkhuis
+
