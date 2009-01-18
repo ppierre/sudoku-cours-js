@@ -15,9 +15,11 @@ L'objectif est d'écrire le code Javascript permettant de résoudre un Sudoku.
   Les séquences seront basées sur des copies de ce dossier.
 
 * Toutes les séquences doivent comporter des [tests unitaires](http://fr.wikipedia.org/wiki/Test_unitaire).
-  * Les tests unitaires seront basés sur [FireUnit](http://fireunit.org/)
+  
+  Les tests unitaires seront basés sur [FireUnit](http://fireunit.org/)
 
 * le fichier _code-javascript.html_ permet la mise en forme du code javascipt
+
   * [illuminated](http://code.google.com/p/code-illuminated/) met en forme les commentaires du code Javascript en utilisant la syntaxe [wiki creole](http://wikicreole.org/)
   
   Tous les fichiers Javascript devraient y recourir.
@@ -27,6 +29,7 @@ L'objectif est d'écrire le code Javascript permettant de résoudre un Sudoku.
 ## Contenus
 
 * Le fichier _index.html_ sera complété lors de la création de nouvelles séquences.
+  
   * Il est visible à l'adresse suivante :
   
   http://ppierre.github.com/sudoku-cours-js/
