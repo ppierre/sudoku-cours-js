@@ -3,7 +3,7 @@
 // Classe manipulant les valeurs possibles d'une case:\\
 // Une liste non ordonnée d'éléments distincts
 //
-// voire la documentation de {{http://mootools.net/docs/Class/Class|Class}} de MooTools.
+// voire la documentation de [[http://mootools.net/docs/Class/Class|Class]] de MooTools.
 
 var SudokuSet = new Class({
   
