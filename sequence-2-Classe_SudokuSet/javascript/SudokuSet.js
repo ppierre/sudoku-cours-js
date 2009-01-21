@@ -9,7 +9,22 @@ var SudokuSet = new Class({
   
 // ** Constructeur le la Classe SudokuSet
 //
-// 
+// Vous pouvez utiliser une propriété d'instance pour stocker les éléments.
+// * Mise en commentaire elle est ici nommée  //_data//
+// * On l'utilise de la façon suivante :
+// ** //this._data//
+//
+// Les choix possibles pour stocker les données sont :
+// * Le plus simple dans un premier temps; un tableau
+// ** //this._data = [];//
+// *** Documentation de [[http://mootools.net/docs/Native/Array|Mootools sur les tableaux]]
+// *** Documentation de [[https://developer.mozilla.org/fr/Référence_de_JavaScript_1.5_Core/Objets_globaux/Array|Mozilla sur les tableaux]]
+// * Moins évidant à utiliser au premier abord, un tableau associatif ([[https://developer.mozilla.org/fr/Référence_de_JavaScript_1.5_Core/Objets_globaux/Object|Object en Javascript]])
+// ** //this._data = {};//
+// *** Documentation des [[https://developer.mozilla.org/fr/Guide_JavaScript_1.5/Constantes_littérales#Objets|'object' sur le site de Mozilla (constantes littérales)]]
+// * Il existe également Hash de la librairie MooTools, une version modifiée d'Object
+// ** //this._data = new Hash()
+// *** Documentation de [[http://mootools.net/docs/Native/Hash|Hash sur le site de MooTools]]
 
   initialize: function(array_init){
     // Code à compléter ...
