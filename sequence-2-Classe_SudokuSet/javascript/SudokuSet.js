@@ -30,7 +30,7 @@ var SudokuSet = new Class({
     // Code à compléter ...
     
     // propriété d'instance
-    //this._data = ????;
+    // this._data = ????;
     
     // Dans un premier temps
     // ne pas s'occuper de l'initialisation 
@@ -39,7 +39,7 @@ var SudokuSet = new Class({
 
 // ** {{{SudokuSet:set}}}
 //
-// ajoute un élément
+// ajoute un élément et retourne l'objet lui-même (//this//)
 
   set: function(key){
     // Code à compléter ...
@@ -57,7 +57,7 @@ var SudokuSet = new Class({
 
 // ** {{{SudokuSet:erase}}}
 //
-// retire un élément
+// retire un élément  et retourne l'objet lui-même (//this//)
 
   erase: function(key){
     // Code à compléter ...
