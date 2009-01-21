@@ -12,7 +12,7 @@ fireunit.ok(
 
 // ** Ajout d'un élément
 //
-// On utilise la méthode//set//
+// On utilise la méthode //set//
 //
 // * On passe le chiffre à ajouter
 // * La fonction retourne l'objet lui-même
@@ -23,7 +23,7 @@ fireunit.ok(
 
 // ** On peut tester la présence d'un élément
 //
-// On utilise la méthode//has//
+// On utilise la méthode //has//
 //
 // * Retourne //true// pour un élément présent
 // * Retourne //false// pour un élément absent
@@ -39,7 +39,7 @@ fireunit.ok(
 
 // ** Retirer un élément
 //
-// On utilise la méthode//erase//
+// On utilise la méthode //erase//
 //
 // * On passe le chiffre à retirer
 // * La fonction retourne l'objet lui même
