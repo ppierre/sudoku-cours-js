@@ -5,6 +5,8 @@
 //
 // voire la documentation de [[http://mootools.net/docs/Class/Class|Class]] de MooTools.
 
+/*global Class */
+
 var SudokuSet = new Class({
   
 // ** Constructeur le la Classe SudokuSet
@@ -26,7 +28,7 @@ var SudokuSet = new Class({
 // ** //this._data = new Hash()
 // *** Documentation de [[http://mootools.net/docs/Native/Hash|Hash sur le site de MooTools]]
 
-  initialize: function(array_init){
+  initialize: function (array_init) {
     // Code à compléter ...
     
     // propriété d'instance
@@ -41,7 +43,7 @@ var SudokuSet = new Class({
 //
 // ajoute un élément et retourne l'objet lui-même (//this//)
 
-  set: function(key){
+  set: function (key) {
     // Code à compléter ...
   },
 
@@ -51,7 +53,7 @@ var SudokuSet = new Class({
 //
 // retourne un Booléen
 
-  has: function(key){
+  has: function (key) {
     // Code à compléter ...
   },
 
@@ -59,7 +61,7 @@ var SudokuSet = new Class({
 //
 // retire un élément  et retourne l'objet lui-même (//this//)
 
-  erase: function(key){
+  erase: function (key) {
     // Code à compléter ...
   },
 
@@ -67,7 +69,7 @@ var SudokuSet = new Class({
 //
 // retourne le nombre d'éléments
 
-  getLength: function(){
+  getLength: function () {
     // Code à compléter ...
   },
 
@@ -77,7 +79,7 @@ var SudokuSet = new Class({
 //
 // Le tableau doit être trié en ordre croissant
 
-  getKeys: function(){
+  getKeys: function () {
     // Code à compléter ...
   },
 
@@ -85,7 +87,7 @@ var SudokuSet = new Class({
 //
 // Test si l'ensemble inclut tous les éléments d'un autre ensemble.
 
-  hasAll: function(set){
+  hasAll: function (set) {
     // Code à compléter ...
   },
 
@@ -97,7 +99,7 @@ var SudokuSet = new Class({
 // * A est inclus dans B
 // * et B est inclus dans A
 
-  equal: function(set){
+  equal: function (set) {
     // Code à compléter ...
   },
 
@@ -107,7 +109,7 @@ var SudokuSet = new Class({
 //
 // Retourne l'objet lui-même
 
-  combine: function(set){
+  combine: function (set) {
     // Code à compléter ...
   },
 
@@ -117,7 +119,7 @@ var SudokuSet = new Class({
 //
 // Retourne l'objet lui-même
 
-  remove: function(set){
+  remove: function (set) {
     // Code à compléter ...
   },
 
@@ -127,7 +129,7 @@ var SudokuSet = new Class({
 //
 // Retourne l'objet lui-même
 
-  intersect: function(set){
+  intersect: function (set) {
     // Code à compléter ...
   },
 
@@ -135,7 +137,7 @@ var SudokuSet = new Class({
 //
 // Retourne une copie de l'objet
 
-  copy: function(){
+  copy: function () {
     // Code à compléter ...
   }
 
