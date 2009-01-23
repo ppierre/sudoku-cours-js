@@ -137,7 +137,7 @@ var SudokuSet = new Class({
 
   copy: function(){
     // Code à compléter ...
-  },
+  }
 
 // ** Fin de la déclaration de la Class SudokuSet
 
