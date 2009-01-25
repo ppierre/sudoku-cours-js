@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>untitled</title>
+	<style type="text/css">
+/* Stylesheet generated from TextMate theme
+ *
+ * IDLE
+ * 
+ *
+ */
+
+/* Mostly to improve view within the TextMate HTML viewer */
+body {
+	margin: 0;
+	padding: 0;
+}
+
+pre.textmate-source {
+	margin: 0;
+	padding: 0 0 0 2px;
+	font-family: Anonymous, monospace;
+	font-size: 11px;
+	line-height: 1.3em;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+}
+
+pre.textmate-source.idle {
+	color: #000000;
+	background-color: #FFFFFF;
+}
+
+pre.textmate-source .linenum {
+	width: 75px;
+	padding: 0.1em 1em 0.2em 0;
+	color: #888;
+	background-color: #eee;
+}
+pre.textmate-source.idle span {
+   padding-top: 0.2em;
+   padding-bottom: 0.1em;
+}
+pre.textmate-source.idle ::selection {
+	background-color: #BAD6FD;
+}
+/* Comment */
+pre.textmate-source.idle .comment {
+	color: #919191;
+}
+
+/* String */
+pre.textmate-source.idle .string {
+	color: #00A33F;
+}
+
+/* Number */
+pre.textmate-source.idle .constant_numeric {
+}
+
+/* Built-in constant */
+pre.textmate-source.idle .constant_language {
+	color: #A535AE;
+}
+
+/* User-defined constant */
+pre.textmate-source.idle .constant_character, pre.textmate-source.idle .constant_other {
+}
+
+/* Variable */
+pre.textmate-source.idle .variable_language, pre.textmate-source.idle .variable_other {
+}
+
+/* Keyword */
+pre.textmate-source.idle .keyword {
+	color: #FF5600;
+}
+
+/* Storage */
+pre.textmate-source.idle .storage {
+	color: #FF5600;
+}
+
+/* Type name */
+pre.textmate-source.idle .entity_name_type {
+	color: #21439C;
+}
+
+/* Inherited class */
+pre.textmate-source.idle .entity_other_inherited-class {
+}
+
+/* Function name */
+pre.textmate-source.idle .entity_name_function {
+	color: #21439C;
+}
+
+/* Function argument */
+pre.textmate-source.idle .variable_parameter {
+}
+
+/* Tag name */
+pre.textmate-source.idle .entity_name_tag {
+}
+
+/* Tag attribute */
+pre.textmate-source.idle .entity_other_attribute-name {
+}
+
+/* Library function */
+pre.textmate-source.idle .support_function {
+	color: #A535AE;
+}
+
+/* Library constant */
+pre.textmate-source.idle .support_constant {
+	color: #A535AE;
+}
+
+/* Library class/type */
+pre.textmate-source.idle .support_type, pre.textmate-source.idle .support_class {
+	color: #A535AE;
+}
+
+/* Library variable */
+pre.textmate-source.idle .support_variable {
+	color: #A535AE;
+}
+
+/* Invalid */
+pre.textmate-source.idle .invalid {
+	color: #FFFFFF;
+	background-color: #990000;
+}
+
+/* String interpolation */
+pre.textmate-source.idle .constant_other_placeholder_py {
+	color: #990000;
+}
+
+/* Diff */
+pre.textmate-source.idle .meta_diff_header {
+  background-color: #5684E2;
+}
+
+pre.textmate-source.idle .meta_diff_range {
+  background-color: #3367D1;
+}
+
+pre.textmate-source.idle .markup_deleted_diff {
+  background-color: #FF3D3C;
+}
+
+pre.textmate-source.idle .markup_inserted_diff {
+  background-color: #73FF64;
+}
+
+	</style>
+</head>
+
+<body><pre class="textmate-source idle"><span class="source source_diff"><span class="meta meta_diff meta_diff_header meta_diff_header_from-file"><span class="punctuation punctuation_definition punctuation_definition_from-file punctuation_definition_from-file_diff">---</span> /Users/pierrepracht/Documents/Programmation/javascript/sudoku-cours-js/sequence-3-1-Classe_SudokuSet_correction/javascript/SudokuSet-Hash.js
+</span><span class="meta meta_diff meta_diff_header meta_diff_header_to-file"><span class="punctuation punctuation_definition punctuation_definition_to-file punctuation_definition_to-file_diff">+++</span> SudokuSet-Array.js
+</span><span class="meta meta_diff meta_diff_range meta_diff_range_unified"><span class="punctuation punctuation_definition punctuation_definition_range punctuation_definition_range_diff">@@</span> <span class="meta meta_toc-list meta_toc-list_line-number meta_toc-list_line-number_diff">-5,7 +5,7</span> <span class="punctuation punctuation_definition punctuation_definition_range punctuation_definition_range_diff">@@</span>
+</span> //
+ // voire la documentation de {{http://mootools.net/docs/Class/Class|Class}} de MooTools.
+ 
+<span class="markup markup_deleted markup_deleted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">-</span>/*global Class, Hash, $defined */
+</span><span class="markup markup_inserted markup_inserted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">+</span>/*global Class, $defined */
+</span> 
+ var SudokuSet = new Class({
+   
+<span class="meta meta_diff meta_diff_range meta_diff_range_unified"><span class="punctuation punctuation_definition punctuation_definition_range punctuation_definition_range_diff">@@</span> <span class="meta meta_toc-list meta_toc-list_line-number meta_toc-list_line-number_diff">-14,11 +14,9</span> <span class="punctuation punctuation_definition punctuation_definition_range punctuation_definition_range_diff">@@</span>
+</span> // 
+ 
+   initialize: function (array_init) {
+<span class="markup markup_deleted markup_deleted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">-</span>    this.data = new Hash();
+</span><span class="markup markup_inserted markup_inserted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">+</span>    this.data = [];
+</span>     if ($defined(array_init)) {
+<span class="markup markup_deleted markup_deleted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">-</span>      array_init.forEach(function (key) {
+</span><span class="markup markup_deleted markup_deleted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">-</span>        this.set(key);
+</span><span class="markup markup_deleted markup_deleted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">-</span>      }, this);
+</span><span class="markup markup_inserted markup_inserted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">+</span>      this.data.combine(array_init);
+</span>     }
+   },
+ 
+<span class="meta meta_diff meta_diff_range meta_diff_range_unified"><span class="punctuation punctuation_definition punctuation_definition_range punctuation_definition_range_diff">@@</span> <span class="meta meta_toc-list meta_toc-list_line-number meta_toc-list_line-number_diff">-27,7 +25,7</span> <span class="punctuation punctuation_definition punctuation_definition_range punctuation_definition_range_diff">@@</span>
+</span> // ajoute un élément
+ 
+   set: function (key) {
+<span class="markup markup_deleted markup_deleted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">-</span>    this.data.set(key, true);
+</span><span class="markup markup_inserted markup_inserted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">+</span>    this.data.combine([key]);
+</span>     return this;
+   },
+ 
+<span class="meta meta_diff meta_diff_range meta_diff_range_unified"><span class="punctuation punctuation_definition punctuation_definition_range punctuation_definition_range_diff">@@</span> <span class="meta meta_toc-list meta_toc-list_line-number meta_toc-list_line-number_diff">-38,7 +36,7</span> <span class="punctuation punctuation_definition punctuation_definition_range punctuation_definition_range_diff">@@</span>
+</span> // retourne un Booléen
+ 
+   has: function (key) {
+<span class="markup markup_deleted markup_deleted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">-</span>    return this.data.has(key);
+</span><span class="markup markup_inserted markup_inserted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">+</span>    return this.data.contains(key);
+</span>   },
+ 
+ // ** {{{SudokuSet:erase}}}
+<span class="meta meta_diff meta_diff_range meta_diff_range_unified"><span class="punctuation punctuation_definition punctuation_definition_range punctuation_definition_range_diff">@@</span> <span class="meta meta_toc-list meta_toc-list_line-number meta_toc-list_line-number_diff">-55,7 +53,7</span> <span class="punctuation punctuation_definition punctuation_definition_range punctuation_definition_range_diff">@@</span>
+</span> // retourne le nombre d'éléments
+ 
+   getLength: function () {
+<span class="markup markup_deleted markup_deleted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">-</span>    return this.data.getLength();
+</span><span class="markup markup_inserted markup_inserted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">+</span>    return this.data.length;
+</span>   },
+ 
+ // ** {{{SudokuSet:getKeys}}}
+<span class="meta meta_diff meta_diff_range meta_diff_range_unified"><span class="punctuation punctuation_definition punctuation_definition_range punctuation_definition_range_diff">@@</span> <span class="meta meta_toc-list meta_toc-list_line-number meta_toc-list_line-number_diff">-65,7 +63,7</span> <span class="punctuation punctuation_definition punctuation_definition_range punctuation_definition_range_diff">@@</span>
+</span> // Le tableau doit être trié en ordre croissant
+ 
+   getKeys: function () {
+<span class="markup markup_deleted markup_deleted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">-</span>    return this.data.getKeys().sort(function (a, b) {
+</span><span class="markup markup_inserted markup_inserted_diff"><span class="punctuation punctuation_definition punctuation_definition_inserted punctuation_definition_inserted_diff">+</span>    return this.data.sort(function (a, b) {
+</span>       return a - b;
+     });
+   },
+</span></pre>
+</body>
+</html>
