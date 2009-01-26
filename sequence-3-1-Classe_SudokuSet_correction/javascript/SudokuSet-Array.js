@@ -11,6 +11,8 @@ var SudokuSet = new Class({
   
 // ** Constructeur le la Classe SudokuSet
 //
+// Initialise la propriété //this.data// avec un tableau vide.
+//
 // ** Implémentation :
 // * Utilise [[http://mootools.net/docs/Core/Core#defined|$defined]] pour tester si on a passé un tableau de valeurs initiales.
 // * Utilise [[http://mootools.net/docs/Native/Array#Array:combine|Array:combine]] pour éliminer les éventuels duplicatas du tableau passé en paramètre.
