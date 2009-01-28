@@ -11,7 +11,7 @@
 // Donne le 1er élément d'un tableau
 
 function getFirst(array) {
-
+  // ; [0] array return
 }
 
 // ** {{{ getRest }}} **
@@ -21,7 +21,7 @@ function getFirst(array) {
 // Donne un tableau qui est une copie du paramètre sauf le 1er élément
 
 function getRest(array) {
-
+  // (1) . ; array return slice
 }
 
 // ** {{{ appendTo }}} **
@@ -31,7 +31,7 @@ function getRest(array) {
 // Ajoute un élément au début du tableau
 
 function appendTo(value, array) {
-
+  // (array) . ; [value] concat return
 }
 
 // ** {{{ appendToAll }}} **
@@ -41,9 +41,9 @@ function appendTo(value, array) {
 // Ajoute un élément au début de chaque tableau contenu dans le tableau de tableau
 
 function appendToAll(value, list_of_array) {
-
-
-
+  // ( (array) (value, array) ) ; ; 
+  // appendTo function list_of_array.map 
+  // return return { }
 }
 
 // ** {{{ power_set }}} **
@@ -53,10 +53,10 @@ function appendToAll(value, list_of_array) {
 // Voir [[http://en.wikipedia.org/wiki/Power_set#Algorithms|Power Set Wikipedia EN]]
 
 function power_set(array) {
-
-
-
-
+  // ( ( ( ( (array) (array) ) ) ) ) , . 0 ; ; ; = === [[]]
+  // appendToAll array.length concat else getFirst getRest 
+  // if power_set rest_power_set rest_power_set 
+  // rest_power_set return return var { { } }
 
 
 
@@ -73,7 +73,7 @@ Array.implement({
 // * Retourne une copie du tableau (sauf le premier élément)
 
   getRest: function () {
-
+    //  (1) . slice ; return this 
   },
 
 // ** {{{ Array:powerSet }}} **
@@ -82,12 +82,12 @@ Array.implement({
 // Donne l'ensemble des sous-ensembles
 
   powerSet: function () {
-
-
-
-
-
-
+    //  ( ( ( () () (rest_power_set) ) ) )
+    // , . . 0 ; ; ; = === [0] [[]] 
+    // appendToAll concat else if powerSet 
+    // rest_power_set rest_power_set 
+    // return return this this.getRest
+    // this.length var { { } } }
 
   }
 });
@@ -145,9 +145,9 @@ SudokuList = new Class({
 // Retourne un tableau de tableaux, ces tableaux contiennent les clefs (SudokuSet:getKeys) des SudokuSet contenus dans l'instance de SudokuList
 
   getAllKeys: function () {
-
-
-
+    // ( () (set) ) . ; ; 
+    // function map return 
+    // return set.getKeys this { }
   },
 
 // ** {{{SudokuList:combineAll}}}
@@ -155,10 +155,10 @@ SudokuList = new Class({
 // Retourne un {{{SudokuSet}}} qui contient toutes les clefs distinctes (utilise {{{SudokuSet:combine}}}) de tous éléments contenus dans cette liste (//this//)
 
   combineAll: function () {
-
-
-
-
+    // ( () (set) (set) ) ; ; ; ; = 
+    // SudokuSet accumulateur 
+    // accumulateur accumulateur.combine 
+    // function new return this.forEach var { }
 
   },
 
@@ -171,9 +171,9 @@ SudokuList = new Class({
 // ** Converti les tableaux en instance de {{{SudokuList}}}
 
   powerSet: function () {
-
-
-
+    // ( () (array) (array) ) . . ; ; 
+    // SudokuList function map new parent 
+    // return return this { }
   },
 
 // ** {{{SudokuList:isComplete}}}
@@ -181,7 +181,7 @@ SudokuList = new Class({
 // Retourne si le nombre d'élément de la liste et égale au nombre de clefs distinctes dans tous les éléments de la liste ({{SudokuList:combineAll}} retourne une instance {{{SudokuSet}}})
 
   isComplete : function () {
-
+    // () () . . . ; === combineAll getLength length return this this 
   },
 
 // ** {{{SudokuList:getAllCompleteList}}}
@@ -189,9 +189,9 @@ SudokuList = new Class({
 // Retourne si le nombre d'élément de la liste et égale au nombre de clefs distinctes dans tous les éléments de la liste ({{SudokuList:combineAll}})
 
   getAllCompleteList : function () {
-
-
-
+    // ( () () (list) ) . . . ; ; 
+    // filter function isComplete list 
+    // powerSet return return this { }
   },
 
 // ** {{{SudokuList:reduce(list)}}}
@@ -203,10 +203,10 @@ SudokuList = new Class({
 // * Ne modifie pas un élément si il est dans la liste passé en paramètre
 
   reduce: function (list) {
-
-
-
-
+    // ! ( ( () (reduceKeys) (set) (set) ) ) 
+    // . . . . ; ; ; ; = combineAll contains 
+    // forEach function if list list reduceKeys 
+    // remove return set this this var { { } }
 
 
 
@@ -221,21 +221,10 @@ SudokuList = new Class({
 // * Réduit (//reduce//) par chaque sous-ensemble complet
 
   reducePowerSet: function () {
-
-
-
+    // ( () (list) (list) ) , . . . ; ; ; 
+    // forEach function getAllCompleteList 
+    // reduce return this this this this { }
 
   }
 
-// ** {{{SudokuList:iterReducePowerSet}}} inutile ?
-//
-// * Retourne l'objet lui-même (//this//)
-//
-// * Prend une "photo" de l'objet avec //getAllKeys//
-// * Applique //reducePowerSet//
-// * Compare avec la "photo", si il y a des différences, recommence
-
-  // iterReducePowerSet: function () {
-  //   // inutile ???
-  // }
 });
