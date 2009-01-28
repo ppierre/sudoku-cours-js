@@ -87,7 +87,7 @@ Array.implement({
     // appendToAll concat else if powerSet 
     // rest_power_set rest_power_set 
     // return return this this.getRest
-    // this.length var { { } } }
+    // this.length var { { } }
 
   }
 });
