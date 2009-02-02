@@ -1,5 +1,6 @@
 // = Tests unitaires (Modèle)
 
+/*global SudokuGrid fireunit*/
 
 // ** Test d'une itération de réduction par powerSet
 
@@ -25,13 +26,13 @@ var grid_solved = [[2, 6, 1, 3, 5, 7, 4, 9, 8],
 
 var grid = new SudokuGrid(grid_init);
 
-function compare_grid (grid1,grid2,msg) {
-  grid1.each(function(line1,index) {
-    line2 = grid2[index];
+function compare_grid(grid1, grid2, msg) {
+  grid1.each(function (line1, index) {
+    var line2 = grid2[index];
     fireunit.compare(
       line1.toSource(),
       line2.toSource(),
-      msg+" (ligne: "+(index+1).toString()+")");
+      msg + " (ligne: " + (index + 1).toString() + ")");
   });
 }
 

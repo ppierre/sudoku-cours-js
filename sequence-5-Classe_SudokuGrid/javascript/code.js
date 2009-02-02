@@ -101,7 +101,7 @@ var SudokuGrid = new Class({
     
   },
   
-  reducePowerSet: function(array_of_list){
+  reducePowerSet: function (array_of_list) {
     array_of_list.forEach(function (list) {
       list.reducePowerSet();
     });
@@ -113,10 +113,10 @@ var SudokuGrid = new Class({
     this.reducePowerSet(this.cells);
   },
   
-  getSolved: function (){
+  getSolved: function () {
     return this.data.map(function (line) {
       return line.map(function (cell) {
-        if (cell.getLength() === 1 ) {
+        if (cell.getLength() === 1) {
           return cell.getKeys()[0];
         } else {
           return 0;
@@ -130,7 +130,7 @@ var SudokuGrid = new Class({
 // Ecrire une méthode qui va appeler reducePowerSetAll 
 // autant de fois que nécessaire pour résoudre le Sudoku
 
-  solve: function(){
+  solve: function () {
     
   }
 
