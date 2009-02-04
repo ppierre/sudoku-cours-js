@@ -30,12 +30,12 @@ function extract_cols(aa) {
   return [[]];
 }
 
-// ** {{{get_i_coll}}}
+// ** {{{get_i_col}}}
 // 
 // Donne l'indice de la colonne pour un indice de sous-grille
 // et la position dans cette sous-grille
 
-function get_i_coll(i_cell, i_pos) {
+function get_i_col(i_cell, i_pos) {
  
 }
 

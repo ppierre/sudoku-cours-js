@@ -21,7 +21,7 @@ fireunit.compare(
 //
 // À écrire !
 
-// ** Tests de {{{get_i_coll}}}
+// ** Tests de {{{get_i_col}}}
 //
 // À écrire !
 
