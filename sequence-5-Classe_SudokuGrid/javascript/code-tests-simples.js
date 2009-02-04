@@ -1,5 +1,7 @@
 // = Tests unitaires : SudokuGrid (fonctions simples)
 
+/*global fireunit */
+
 // ** Exemple de tests : simple assertion
 
 fireunit.ok(2 * 2 === 4, "deux fois deux font quatre");
@@ -8,9 +10,9 @@ fireunit.ok(2 * 2 === 4, "deux fois deux font quatre");
 //
 // cliquer sur le test puis utiliser l'onglet compare pour le corriger
 
-tableau = [1, 3, 2];
+var tableau = [1, 3, 2];
 
-tableau_double = [1, 3, 2, 1, 3, 2];
+var tableau_double = [1, 3, 2, 1, 3, 2];
 
 fireunit.compare(
   tableau_double.toSource(),
