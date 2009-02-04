@@ -26,8 +26,8 @@ function extract_cols(aa) {
 
 
 
-
-
+  // Pour simplifier le "test" des tests...
+  return [[]];
 }
 
 // ** {{{get_i_coll}}}
@@ -62,8 +62,8 @@ function extract_cells(aa) {
 
 
 
-
-
+  // Pour simplifier le "test" des tests...
+  return [[]];
 }
 
 // ** {{{map_SudokuList}}}
