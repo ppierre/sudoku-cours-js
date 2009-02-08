@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+  <title>Tests unitaires : SudokuGrid (tests de réductions avec optimisations)</title>
+  
+  <!-- Charge MooTools -->
+  <script src="../ressources/mootools-1.2.1-core-nc.js" type="text/javascript" charset="utf-8"></script>
+  
+  <!-- Charge SudokuSet -->
+  <!-- Optimisations : (après getNewCompleteList)
+    SudokuSet-Array-exercice.js        : 1er = 4.5s   , der = 3.6s
+    SudokuSet-Array-exercice-opt.js    : 1er = 3.6s   , der = 3.0s
+    SudokuSet-Array.js                 : 1er = 3s     , der = 2.4s
+    SudokuSet-Array-opt.js             : 1er = 2.7s   , der = 2.1s
+    SudokuSet-Hash.js                  : 1er = 11s    , der = 9.5s
+     -->
+    <script src="javascript/SudokuSet-base_2.js" type="text/javascript" charset="utf-8"></script>
+    
+  <!-- Charge SudokuList -->
+  <script src="javascript/SudokuList-opt.js" type="text/javascript" charset="utf-8"></script>
+  
+  <!-- Charge le code à tester -->
+  <script src="javascript/code-opt.js" type="text/javascript" charset="utf-8"></script>
+  
+</head>
+
+<body>
+<h1>Tests unitaires de SudokuGrid (tests de réductions avec optimisations)</h1>
+<!-- Vérfie le présence de FireUnit : http://fireunit.org/ -->
+<script type="text/javascript" charset="utf-8">
+  if ( typeof fireunit === "object") {
+    document.write(unescape(
+      '%3Cscript%20src%3D%22javascript%2Fcode-tests.js%22%20type%3D%22text%2Fjavascript%22%20charset%3D%22utf-8%22%3E%3C%2Fscript%3E'));
+  } else {
+    document.write(unescape(
+      '%3Cp%3ENécessite%20%3Ca%20href%3D%22http%3A%2F%2Ffireunit.org%2F%22%3EFireUnit%3C%2Fa%3E%3C%2Fp%3E'));
+  }
+</script>
+</body>
+</html>
