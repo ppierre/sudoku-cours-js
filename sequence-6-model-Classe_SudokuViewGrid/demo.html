@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+  <title>Classe SudokuViewGrid demo</title>
+  
+  <!-- Mootools -->
+  <script src="../ressources/mootools-1.2.1-core-nc.js" type="text/javascript" charset="utf-8"></script>
+  
+  <!-- Votre code -->
+  <script src="javascript/SudokuViewGrid.js" type="text/javascript" charset="utf-8"></script>
+  
+  <script type="text/javascript" charset="utf-8">
+  // code des test
+  function launch_test () {
+    // vide l'espace de la gille
+    $('grid').set('html',"");
+    fireunit.compare(
+      "",
+      $('grid').get('html'),
+      "La grille est bien vide au démarrage");
+    
+    var grid_init =   [[0, 0, 0, 0, 5, 0, 4, 9, 0],
+                       [7, 0, 0, 2, 0, 0, 0, 0, 3],
+                       [0, 0, 0, 6, 0, 9, 2, 0, 0],
+                       [9, 0, 5, 0, 7, 0, 0, 0, 4],
+                       [3, 0, 0, 0, 0, 0, 0, 0, 7],
+                       [4, 0, 0, 0, 6, 0, 3, 0, 1],
+                       [0, 0, 2, 4, 0, 5, 0, 0, 0],
+                       [6, 0, 0, 0, 0, 8, 0, 0, 9],
+                       [0, 9, 4, 0, 3, 0, 0, 0, 0]];
+    
+    // création de la vue d'une grille de sudoku
+    var grid = new SudokuViewGrid("grid", grid_init);
+    // tests de la création des éléments HTML
+    fireunit.compare(
+      'table',
+      $('grid').getFirst().get('tag'),
+      "On a bien un tableau dans 'grid'");
+    fireunit.ok(
+      $('grid').getElements('tr').length === 9,
+      "On a bien 9 lignes");
+    fireunit.ok(
+      $('grid').getElements('td').length === 81,
+      "On a bien 81 case");
+    fireunit.ok(
+      $('grid').getElements('input').length === 81,
+      "On a bien 81 champs de saisie");
+    fireunit.ok(
+      $('grid').getElementById('grid00'),
+      "On a bien un champ à (0,0)");
+    fireunit.ok(
+      $('grid').getElementById('grid88'),
+      "On a bien un champ à (8,8)");
+    fireunit.ok(
+      $('grid').getElementById('grid37'),
+      "On a bien un champ à (3,7)");
+    
+    // tests de l'initialisation des champs de saisie
+    fireunit.ok(
+      $('grid04').get('value') === "5",
+      "Le champ à (0,4) contient bien '5'");
+    fireunit.ok(
+      $('grid10').get('value') === "7",
+      "Le champ à (1,0) contient bien '7'");
+    fireunit.ok(
+      $('grid00').get('value') === "",
+      "Le champ à (0,0) contient rien ''");
+    fireunit.ok(
+      $('grid04').hasClass('readonly'),
+      "Le champ à (0,4) a bien la classe css 'readonly'");
+    fireunit.ok(
+      $('grid04').get('readonly') === true,
+      "Le champ à (0,4) est bien en lecture seule");
+    
+    // lecture des champs
+    fireunit.ok(
+      grid.get(0,4) === 5,
+      "on peut lire la position (0,4) qui contient bien 5");
+    fireunit.ok(
+      grid.get(1,0) === 7,
+      "on peut lire la position (1,0) qui contient bien 7");
+    fireunit.ok(
+      grid.get(0,0) === 0,
+      "on peut lire la position (0,0) qui contient bien 0");
+    
+    // écriture des champs
+    fireunit.ok(
+      $('grid37').get('value') === "",
+      "Le champ à (3,7) contient rien ''");
+    fireunit.ok(
+      grid.set(3,7,2) === grid,
+      "la fonction SudokuViewGrid:set retourne bien l'objet lui-même");
+    fireunit.ok(
+      grid.get(3,7) === 2,
+      "on peut lire la position la position (3,7) qui contient bien 2");
+    fireunit.ok(
+      $('grid37').get('value') === "2",
+      "Le champ à (3,7) contient bien '2'");
+    
+    // Modification manuelle des champs
+    fireunit.key($('grid36'), "1" );
+    fireunit.ok(
+      $('grid36').get('value') === "1",
+      "Maintenant Le champ à (3,6) contient bien 1");
+    fireunit.ok(
+      grid.get(3,6) === 1,
+      "on peut lire la position (3,6) qui contient bien 1");
+    // Effacement des champs par une touche quelconque
+    grid.set(4,6,2);
+    fireunit.key($('grid46'), "a" );
+    fireunit.ok(
+      $('grid46').get('value') === "",
+      "Avec la touche 'a' on efface le champ à (4,6), il est bien vide ''");
+    fireunit.ok(
+      grid.get(4,6) === 0,
+      "Avec la touche 'a' la position (4,6) contient bien 0");
+    grid.set(4,7,2);
+    fireunit.key($('grid47'), "0" );
+    fireunit.ok(
+      $('grid47').get('value') === "",
+      "Avec la touche '0' on efface le champ à (4,7), il est bien vide ''");
+    fireunit.ok(
+      grid.get(4,7) === 0,
+      "Avec la touche '0' la position (4,6) contient bien 0");
+    
+    fireunit.key($('grid46'), Event.Keys.get("up") );
+    // fin des tests
+    fireunit.testDone();
+  }
+  
+  function jouer_au_sudoku (argument) {
+    // écrire la code
+    //  construire la gille
+    //  ajouter un bouton lançant la résolution
+    //  laisser le joueur essayer de la remplire
+  }
+  
+  window.addEvent('domready', function() {
+    $('btn_test').addEvent('click',function () {
+      launch_test();
+    });
+    $('btn_jouer').addEvent('click',function () {
+      jouer_au_sudoku();
+    });
+  });
+  
+  </script>
+  
+  <style type="text/css" media="screen">
+    .readonly {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Test : De SudokuViewGrid</h1>
+  <div id="grid"><span>ici vient la grille</span></div>
+  <form action="#" method="get" accept-charset="utf-8">
+    <input type="button" value="Lancer les tests" id="btn_test" />
+    <input type="button" value="Jouer" id="btn_jouer" />
+  </form>
+</body>
+</html>
