@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+  <title>Demo (Evénements)</title>
+  
+  <!-- Mootools -->
+  <script src="../ressources/mootools-1.2.1-core-nc.js" type="text/javascript" charset="utf-8"></script>
+  
+  <!-- Votre code -->
+  <script src="javascript/code.js" type="text/javascript" charset="utf-8"></script>
+  
+  <!-- http://www.quirksmode.org/dom/events/ -->
+  <script type="text/javascript" charset="utf-8">
+    window.addEvent('domready', function() {
+      
+      [
+       'abort',
+        'blur',
+        'change',
+        'click',
+        'dblclick',
+        'error',
+        'focus',
+        'keydown',
+        'keypress',
+        'keyup',
+        'load',
+        'mousedown',
+        // 'mousemove',
+        'mouseout',
+        'mouseover',
+        'mouseup',
+        'reset',
+        'select',
+        'submit',
+        'unload'
+        ].forEach(function(event_name) {
+        $('capture').addEvent(event_name,function (event) {
+          console.log(event_name);
+          console.log(event);
+          console.log(event.target,this);
+          // event.stop();
+        });
+        
+        // http://www.quirksmode.org/blog/archives/2008/04/delegating_the.html
+        // http://demos.mootools.net/Request.HTML#
+        
+        $$('#capture input').addEvent('focus',function (event) {
+          console.log('focus');
+          console.log(event);
+          console.log(event.target,this);
+        });
+        $$('#capture input').addEvent('blur',function (event) {
+          console.log('blur');
+          console.log(event);
+          console.log(event.target,this);
+        });
+      });
+      
+    });
+  </script>
+</head>
+
+<body>
+<h1 id="test">Test : </h1>
+
+<div id="capture">
+<form action="#" method="get" accept-charset="utf-8">
+ 
+    <input type="text" name="champ_1" value="" id="champ_1" />
+    <input type="text" name="champ_2" value="" id="champ_2" />
+  <a href="#">test</a>
+
+  <p><input type="submit" value="Continue &rarr;" /></p>
+</form>
+</div>
+</body>
+</html>
