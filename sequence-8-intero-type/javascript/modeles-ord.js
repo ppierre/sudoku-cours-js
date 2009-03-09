@@ -55,8 +55,8 @@ var RANG = (function () {
 var Carte = new Class({
   initialize: function (rang, couleur, visible) {
     this.rang = rang;
-     
-     
+
+
   },
 
 // ** {{{ Carte:precede}}} **
@@ -69,9 +69,34 @@ var Carte = new Class({
 
   precede: function (autre_carte) {
     return this.rang + 1 === autre_carte.rang;
+  },
+
+// ** {{{ Carte.nom }}}
+// 
+// Retourne une chaine de caractère représentant le nom de la carte
+
+  nom: function () {
+
+  },
+
+// ** {{{ Carte:rend_visible }}}
+//
+// Rend visible la carte
+
+  rend_visible: function () {
+
+    return this;
+  },
+
+// ** {{{ Carte:rend_cache }}}
+//
+// Rend caché la carte
+
+  rend_cache: function () {
+
+    return this;
   }
 
-// fin provisoire de la class Carte
 });
 
 
@@ -84,22 +109,85 @@ var Carte = new Class({
 var Tas = new Class({
   initialize: function () {
     // les cartes sont stoker dans un tableau
-     
+
     // pour chaque couleurs
-     
+
       // pour chaques rangs
-       
-         
-       
-     
+
+
+
+
     // trier les cartes suivant un critère aléatoire
     this.cartes.sort(function (a, b) {
       // on tire à pile ou face
       return Math.random() - 0.5;
     });
+  },
+
+// ** {{{ Tas:donnes_en }}} **
+// 
+// Donne un nombre déterminer de carte
+
+  donnes_en: function (nbr) {
+    // vérfifie qu'il a assez de cartes !
+    if (nbr > this.cartes.length) {
+      // Crie si ce n'est pas le cas
+      throw new Error("Vous m'en demander trop !");
+    } else {
+      // en contant de puis la fin '-nbr' on retire 'nbr' éléments
+
+
+    }
+  },
+
+// ** {{{ Tas:montre_la_derniere }}} **
+// 
+// Montre la dernière cartes du tas
+
+  montre_la_derniere: function () {
+    // trouve la dernière carte
+
+
+    return this;
+  },
+
+// ** {{{ Tas:quelle_est_la_derniere }}} **
+// 
+// Dit quel est la derniére carte (mais ne la retire pas)
+
+  quelle_est_la_derniere: function () {
+    // On vérifie que l'on a encore au moins une carte
+
+      // On crie que l'on a plus rien
+
+
+      // on retourne la dreniére carte 
+      // (mais elle reste réferencée dans le tableau)
+
+
+  },
+
+// ** {{{ Tas:donne_la_derniere }}} **
+// 
+// Donne la derniére carte en la retirant du tableau
+
+  donne_la_derniere: function () {
+    // On vérifie que l'on a encore au moins une carte
+    if (this.cartes.length < 1) {
+      // On crie que l'on a plus rien
+      throw new Error("J'ai plus rien à donner !");
+    } else {
+      // La derniére carte tout en la retirant
+
+      // Si il y a encore au moins une carte
+
+
+
+      // on retourne la carte retiré
+
+    }
   }
 
-// fin provisoire de la class Tas
 });
 
 
@@ -129,7 +217,7 @@ var Piles = new Class({
   peut_prendre: function (carte) {
     /* Si la taille de la pile correspondant à la couleur 
            est égale à son rang */
-     
+
   },
 
 // ** {{{ Piles:prend }}} **
@@ -150,23 +238,6 @@ var Piles = new Class({
 });
 
 
-// ** {{{ Carte }}} **
-// 
-// Suite ...
-// 
-// Usage de la fonction Class:implement
-
-Carte.implement({
-
-// ** {{{ Carte.nom }}}
-// 
-// Retourne une chaine de caractère représentant le nom de la carte
-
-  nom: function () {
-     
-  }
-});
-
 // ** {{{ Colonne }}} **
 // 
 // Représente une colonne de cartes
@@ -183,36 +254,111 @@ var Colonne = new Class({
     this.cartes = cartes;
     // On rend visible la derniéres carte de la colonnes
     this.cartes[cartes.length - 1].rend_visible();
-  }
-});
+  },
 
-
-// ** {{{ Carte }}} **
+// ** {{{ Colonne:peut_prendre }}}
 // 
-// Suite ...
+// Dis si la colonne peut prendre une carte
 // 
-// Rappel :
-// * nom()
+// Retourne un booléen
 
-Carte.implement({
+  peut_prendre: function (nvl_carte) {
+    // On fait attention la colonne peut être vide !
+    try {
+      // On regarde déja la derniére carte :
+      var derniere_carte = this.quelle_est_la_derniere();
+    }
+    catch (e) {
+      // Si la colonne est vide
+      if (e.message === "J'ai plus rien à montrer !") {
+        // On peut alors placer la catre que l'on veut
+        return true;
+      } else {
+        // Si on est ici pour une autre raison !
+        // On ne sait pas quoi faire, alors on relance l'erreur
+        throw e;
+      }
+    }
+    // En premier on regarde le rang
+    if (nvl_carte.rang !== (derniere_carte.rang + 1)) {
+      // ce n'est pas la suivant donc impossible
+      return false;
+    } else {
+      // maintenant la couleur
 
-// ** {{{ Carte:rend_visible }}}
-//
-// Rend visible la carte
+        // Si on va sur pique ou trèfle on doit avoir coeur ou carreau
 
-  rend_visible: function () {
-     
+
+        // Sin on a coeur ou carreau on doit avoir pique ou trèfle
+
+
+    }
+  },
+
+// ** {{{ Colonne:prend }}} **
+// 
+// Prend la carte (déclenche une erreurs si cela est impossible)
+
+  prend: function (carte) {
+    // Si l'on peut prendre la carte
+    if (this.peut_prendre(carte)) {
+      // On l'ajoute sur la pile de la bonne couleur
+      this.cartes.push(carte);
+    } else {
+      // Si on a essayer de tricher, on crie au scandale
+      throw new Error("Impossible de prendre la carte :" + carte.nom());
+    }
     return this;
   },
 
-// ** {{{ Carte:rend_cache }}}
-//
-// Rend caché la carte
+// ** {{{ Colonne:quelle_est_la_derniere }}} **
+// 
+// Dit quel est la derniére carte (mais ne la retire pas)
 
-  rend_cache: function () {
-     
-    return this;
+  quelle_est_la_derniere: function () {
+    // On vérifie que l'on a encore au moins une carte
+    if (this.cartes.length < 1) {
+      // On crie que l'on a plus rien
+      throw new Error("J'ai plus rien à montrer !");
+    } else {
+      // on retourne la dreniére carte 
+      // (mais elle reste réferencée dans le tableau)
+      return this.cartes[this.cartes.length - 1];
+    }
+  },
+
+// ** {{{ Colonne:donne_la_derniere }}} **
+// 
+// Donne la derniére carte en la retirant du tableau
+
+  donne_la_derniere: function () {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  },
+
+// ** {{{ Colonne:montre_la_derniere }}} **
+// 
+// Montre la dernière cartes du tas
+
+  montre_la_derniere: function () {
+
+
+
+
   }
+
 });
 
 
@@ -249,50 +395,8 @@ var Solitaire = new Class({
           )
         );
     }, this);
-    // ne pas oublier de retourner la dernière
-     
-  }
-});
-
-
-// ** {{{ Tas }}} **
-// 
-// Suite ...
-// 
-// Rappel :
-// * peut_prendre()
-// * prend(carte)
-
-Tas.implement({
-
-// ** {{{ Tas:donnes_en }}} **
-// 
-// Donne un nombre déterminer de carte
-
-  donnes_en: function (nbr) {
-    // vérfifie qu'il a assez de cartes !
-    if (nbr > this.cartes.length) {
-      // Crie si ce n'est pas le cas
-      throw new Error("Vous m'en demander trop !");
-    } else {
-      // en contant de puis la fin '-nbr' on retire 'nbr' éléments
-       
-       
-    }
+    this.tas.montre_la_derniere();
   },
-
-// ** {{{ Tas:montre_la_derniere }}} **
-// 
-// Montre la dernière cartes du tas
-
-  montre_la_derniere: function () {
-    // trouve la dernière carte
-     
-     
-    return this;
-  }
-});
-
 
 // == Comment on joue ?
 // 
@@ -310,12 +414,6 @@ Tas.implement({
 
 // ==== Mouvement depuis le tas
 
-// ** {{{ Solitaire }}} **
-// 
-// Suite ...
-
-Solitaire.implement({
-
 // ** {{{ Solitaire::de_tas_a_piles }}} **
 // 
 // Essaye de déplace la derniére carte du tas vers les piles
@@ -327,14 +425,14 @@ Solitaire.implement({
     if (this.piles.peut_prendre(this.tas.quelle_est_la_derniere())) {
       // On peut déplacer la derniére ccarte
       // on prend sur le tas
-       
+      var carte = this.tas.donne_la_derniere();
       // on la place sur la pile
-       
+      this.piles.prend(carte);
       // Dis qu'il a réussi !
-       
+      return true;
     } else {
       // On ne peut pas déplacer la derniére : on le dit (sans crier)
-       
+      return false;
     }
   },
 
@@ -348,156 +446,22 @@ Solitaire.implement({
 // Retourne {{{true}}} si il a réussi ; ({{{false}}} si non)
 
   de_tas_a_colonne: function (colonne) {
-    
-     
-      
-      
-       
-      
-       
-      
-       
-     
-      
-       
-     
-  }
-});
 
 
-// ** {{{ Tas }}} **
-// 
-// Suite ...
 
-Tas.implement({
 
-// ** {{{ Tas:quelle_est_la_derniere }}} **
-// 
-// Dit quel est la derniére carte (mais ne la retire pas)
 
-  quelle_est_la_derniere: function () {
-    // On vérifie que l'on a encore au moins une carte
-     
-      // On crie que l'on a plus rien
-       
-     
-      // on retourne la dreniére carte 
-      // (mais elle reste réferencée dans le tableau)
-       
-    
+
+
+
+
+
+
+
+
   },
-
-// ** {{{ Tas:donne_la_derniere }}} **
-// 
-// Donne la derniére carte en la retirant du tableau
-
-  donne_la_derniere: function () {
-    // _
-    if (this.cartes.length < 1) {
-      // _
-      throw new Error("J'ai plus rien à donner !");
-    } else {
-      // La derniére carte tout en la retirant
-       
-      
-       
-         
-       
-      
-       
-    }
-  }
-
-});
-
-
-// ** {{{ Colonne }}} **
-// 
-// Suite ...
-
-Colonne.implement({
-
-// ** {{{ Colonne:peut_prendre }}}
-// 
-// Dis si la colonne peut prendre une carte
-// 
-// Retourne un booléen
-
-  peut_prendre: function (nvl_carte) {
-    // On fait attention la colonne peut être vide !
-    try {
-      // On regarde déja la derniére carte :
-      var derniere_carte = this.quelle_est_la_derniere();
-    }
-    catch (e) {
-      // Si la colonne est vide
-      if (e.message === "J'ai plus rien à montrer !") {
-        // On peut alors placer la catre que l'on veut
-        return true;
-      } else {
-        // Si on est ici pour une autre raison !
-        // On ne sait pas quoi faire, alors on relance l'erreur
-        throw e;
-      }
-    }
-    // En premier on regarde le rang
-    if (nvl_carte.rang !== (derniere_carte.rang + 1)) {
-      // ce n'est pas la suivant donc impossible
-      return false;
-    } else {
-      // maintenant la couleur
-       
-        // Si on va sur pique ou trèfle on doit avoir coeur ou carreau
-         
-       
-        // Sin on a coeur ou carreau on doit avoir pique ou trèfle
-         
-       
-    }
-  },
-
-// ** {{{ Colonne:prend }}} **
-// 
-// Prend la carte (déclenche une erreurs si cela est impossible)
-
-  prend: function (carte) {
-    // Si l'on peut prendre la carte
-    if (this.peut_prendre(carte)) {
-      // On l'ajoute sur la pile
-      this.cartes.push(carte);
-    } else {
-      // Si on a essayer de tricher, on crie au scandale
-      throw new Error("Impossible de prendre la carte :" + carte.nom());
-    }
-    return this;
-  },
-
-// ** {{{ Colonne:quelle_est_la_derniere }}} **
-// 
-// Dit quel est la derniére carte (mais ne la retire pas)
-
-  quelle_est_la_derniere: function () {
-    // On vérifie que l'on a encore au moins une carte
-    if (this.cartes.length < 1) {
-      // On crie que l'on a plus rien
-      throw new Error("J'ai plus rien à montrer !");
-    } else {
-      // on retourne la dreniére carte 
-      // (mais elle reste réferencée dans le tableau)
-      return this.cartes[this.cartes.length - 1];
-    }
-  }
-
-});
-
 
 // ==== Mouvement depuis une colonne
-
-// ** {{{ Solitaire }}} **
-// 
-// Suite ...
-
-Solitaire.implement({
 
 // ** {{{ Solitaire::de_colonne_a_piles }}} **
 // 
@@ -549,50 +513,4 @@ Solitaire.implement({
       return false;
     }
   }
-});
-
-
-// ** {{{ Colonne }}} **
-// 
-// Suite ...
-// 
-// Rappel :
-// * peut_prendre()
-// * prend(carte)
-
-Colonne.implement({
-
-// ** {{{ Colonne:donne_la_derniere }}} **
-// 
-// Donne la derniére carte en la retirant du tableau
-
-  donne_la_derniere: function () {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  },
-
-// ** {{{ Colonne:montre_la_derniere }}} **
-// 
-// Montre la dernière cartes du tas
-
-  montre_la_derniere: function () {
-
-
-
-
-  }
-
 });
