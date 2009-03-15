@@ -196,6 +196,7 @@ var SudokuViewGrid = new Class({
             event.stop();
           } else {
             if (event.key.length === 1 ||
+                event.key === "space" ||
                 event.key === "delete" ||
                 event.key === "backspace") {
               input.set('value', '');
